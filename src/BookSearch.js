@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import Book from './Book.js'
+
 
 class BookSearch extends Component {
   render() {
@@ -7,7 +9,7 @@ class BookSearch extends Component {
         <div className="search-books-bar">
 
           <a className="close-search" onClick={() => this.setState({ showSearchPage: false })}>Close</a>
-          
+
           <div className="search-books-input-wrapper">
 
             <input type="text" placeholder="Search by title or author"/>
