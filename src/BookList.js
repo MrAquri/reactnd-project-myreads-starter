@@ -4,8 +4,6 @@ import Book from './Book.js'
 
 class BookList extends Component {
 
-
-
   render() {
     return (
       <div className="list-books">
@@ -23,6 +21,7 @@ class BookList extends Component {
                       <li key={book.id}>
                         <Book
                           book={book}
+                          changeShelf={this.props.changeShelf}
                         />
                       </li>
                     ))
@@ -39,6 +38,7 @@ class BookList extends Component {
                       <li key = {book.id}>
                         <Book
                           book={book}
+                          changeShelf={this.props.changeShelf}
                         />
                       </li>
                     ))
@@ -55,6 +55,7 @@ class BookList extends Component {
                       <li key={book.id}>
                         <Book
                           book={book}
+                          changeShelf={this.props.changeShelf}
                         />
                         </li>
                     ))

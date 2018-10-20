@@ -1,18 +1,46 @@
 import React, { Component } from 'react'
 
 class Book extends Component {
+
+  state = {
+    options: [
+      {
+        name: 'Move to...',
+        value: 'move',
+      },
+      {
+        name: 'Currently Reading',
+        value: 'currentlyReading',
+      },
+      {
+        name: 'Want to Read',
+        value: 'wantToRead',
+      },
+      {
+        name: 'Read',
+        value: 'read',
+      },
+      {
+        name: 'None',
+        value: 'none',
+      },
+    ],
+    value: ''
+  }
+
   render() {
     return (
       <div className="book">
         <div className="book-top">
-          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url("${this.props.book.imageLinks.thumbnail})"` }}></div>
+          <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
           <div className="book-shelf-changer">
-            <select>
-              <option value="move" disabled>Move to...</option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
+            <select onChange={(event) => this.props.changeShelf(this.props.book, event.target.value)
+            }>
+              {this.state.options.map(item => (
+                <option key={item.value} value={item.value}>
+                  {item.name}
+                </option>
+              ))}
             </select>
           </div>
         </div>
@@ -24,3 +52,13 @@ class Book extends Component {
 }
 
 export default Book;
+
+
+
+/*
+              <option value="move" disabled>Move to...</option>
+              <option value="currentlyReading">Currently Reading</option>
+              <option value="wantToRead">Want to Read</option>
+              <option value="read">Read</option>
+              <option value="none">None</option>
+              */
