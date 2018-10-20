@@ -23,9 +23,8 @@ class Book extends Component {
       {
         name: 'None',
         value: 'none',
-      },
-    ],
-    value: ''
+      }
+    ]
   }
 
   render() {
