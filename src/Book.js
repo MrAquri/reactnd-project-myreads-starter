@@ -7,22 +7,27 @@ class Book extends Component {
       {
         name: 'Move to...',
         value: 'move',
+        disabled: true,
       },
       {
         name: 'Currently Reading',
         value: 'currentlyReading',
+        disabled: false,
       },
       {
         name: 'Want to Read',
         value: 'wantToRead',
+        disabled: false,
       },
       {
         name: 'Read',
         value: 'read',
+        disabled: false,
       },
       {
         name: 'None',
         value: 'none',
+        disabled: false,
       }
     ]
   }
@@ -36,7 +41,7 @@ class Book extends Component {
             <select onChange={(event) => this.props.changeShelf(this.props.book, event.target.value)
             }>
               {this.state.options.map(item => (
-                <option key={item.value} value={item.value}>
+                <option key={item.value} value={item.value} disabled={item.disabled}>
                   {item.name}
                 </option>
               ))}
