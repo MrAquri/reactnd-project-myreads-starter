@@ -38,8 +38,9 @@ class Book extends Component {
         <div className="book-top">
           <div className="book-cover" style={{ width: 128, height: 193, backgroundImage: `url(${this.props.book.imageLinks.thumbnail})` }}></div>
           <div className="book-shelf-changer">
-            <select onChange={(event) => this.props.changeShelf(this.props.book, event.target.value)
-            }>
+            <select onChange={(event) => this.props.changeShelf(this.props.book, event.target.value)}
+              value={this.props.currentShelf}
+            >
               {this.state.options.map(item => (
                 <option key={item.value} value={item.value} disabled={item.disabled}>
                   {item.name}
