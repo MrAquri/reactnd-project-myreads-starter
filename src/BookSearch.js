@@ -55,13 +55,19 @@ class BookSearch extends Component {
         <div className="search-books-results">
           <ol className="books-grid">
             {this.state.searchedBooks.map(searchedBook => {
-              let defShelf = 'none';
+              let shelf = 'none';
+
+      //Maps through the books array and check if the book is on the main page
+              this.props.books.map(book => (
+                book.id === searchedBook.id ? shelf = book.shelf : ''
+              ))
+
               return (
                 <li key={searchedBook.id}>
                 <Book
                   book={searchedBook}
                   changeShelf={this.props.changeShelf}
-                  currentShelf={defShelf}
+                  currentShelf={shelf}
                 />
               </li>
               )
