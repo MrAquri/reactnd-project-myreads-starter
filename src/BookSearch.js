@@ -33,16 +33,6 @@ class BookSearch extends Component {
 
 
   render() {
-/*
-    let showingBooks
-    if (this.state.query) {
-      const match = new RegExp(escapeRegExp(this.state.query), 'i')
-      showingBooks = this.props.books.filter((book) => match.test(book.name))
-    } else {
-      showingBooks = this.props.books
-    }
-*/
-//    showingBooks.sort(sortBy('name'))
 
     return (
       <div className="search-books">
@@ -68,6 +58,7 @@ class BookSearch extends Component {
               <li key={searchedBook.id}>
                 <Book
                   book={searchedBook}
+                  changeShelf={this.props.changeShelf}
                 />
               </li>
             ))}
