@@ -46,6 +46,7 @@ class Book extends Component {
             <select onChange={(event) => this.props.changeShelf(this.props.book, event.target.value)}
               value={this.props.currentShelf}
             >
+            {/* Mapping through option state to generate options */}
               {this.state.options.map(item => (
                 <option key={item.value} value={item.value} disabled={item.disabled}>
                   {item.name}
@@ -62,13 +63,3 @@ class Book extends Component {
 }
 
 export default Book;
-
-
-
-/*
-              <option value="move" disabled>Move to...</option>
-              <option value="currentlyReading">Currently Reading</option>
-              <option value="wantToRead">Want to Read</option>
-              <option value="read">Read</option>
-              <option value="none">None</option>
-              */

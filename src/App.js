@@ -11,12 +11,14 @@ class BooksApp extends Component {
     books: []
   }
 
+  // Fetching all the books after the page is loaded
   componentDidMount() {
     BooksAPI.getAll().then((books) => {
       this.setState({books})
     })
   }
 
+  // Changing current shelf and updating the book state
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(
       BooksAPI.getAll().then((books) => {

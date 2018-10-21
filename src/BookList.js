@@ -16,6 +16,8 @@ class BookList extends Component {
               <h2 className="bookshelf-title">Currently Reading</h2>
               <div className="bookshelf-books">
                 <ol className="books-grid">
+                {/* Filtering through books state to select desired shelf.
+                    Then mapping and creating a book list */}
                   {this.props.books.filter(book => book.shelf === 'currentlyReading'
                     ).map(book => (
                       <li key={book.id}>

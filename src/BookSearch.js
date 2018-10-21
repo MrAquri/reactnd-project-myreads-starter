@@ -2,8 +2,6 @@ import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from './BooksAPI'
 import Book from './Book.js'
-import escapeRegExp from 'escape-string-regexp'
-import sortBy from 'sort-by'
 
 class BookSearch extends Component {
 
@@ -12,14 +10,17 @@ class BookSearch extends Component {
     searchedBooks: []
   }
 
+  // Updating query state onChange from input filed
   updateQuery = (query) => {
     this.setState({query: query})
     this.searchingBooks(query);
   }
 
+  // Searching for the books
   searchingBooks = (query) => {
     if (query) {
       BooksAPI.search(query).then((searchedBooks) => {
+        // On error seting the searchedBooks state to an empty array
         if (searchedBooks.error) {
           this.setState({searchedBooks: [] })
         } else {
