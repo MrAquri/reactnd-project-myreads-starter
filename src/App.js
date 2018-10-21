@@ -6,6 +6,7 @@ import BookList from './BookList.js'
 import BookSearch from './BookSearch.js'
 
 class BooksApp extends Component {
+
   state = {
     books: []
   }
@@ -17,11 +18,10 @@ class BooksApp extends Component {
   }
 
   changeShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf);
-
-    BooksAPI.getAll().then((books) => {
+    BooksAPI.update(book, shelf).then(
+      BooksAPI.getAll().then((books) => {
       this.setState({books})
-    })
+        }))
   }
 
   render() {
