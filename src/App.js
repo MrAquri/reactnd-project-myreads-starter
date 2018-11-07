@@ -18,12 +18,14 @@ class BooksApp extends Component {
     })
   }
 
-  // Changing current shelf and updating the book state
+  // When the shelf is changed the server is updated, then there is an update on the client side
   changeShelf = (book, shelf) => {
-    BooksAPI.update(book, shelf).then(
-      BooksAPI.getAll().then((books) => {
-      this.setState({books})
-        }))
+    BooksAPI.update(book, shelf).then(resp => {
+      book.shelf = shelf;
+      this.setState(state => ({
+        books: state.books.filter(b => b.id !== book.id).concat([book])
+      }))
+    })
   }
 
   render() {
