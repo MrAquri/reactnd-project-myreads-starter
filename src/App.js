@@ -1,6 +1,8 @@
-// Creating a project I used a general idea of knowledge provided in tutorials:
-// https://www.youtube.com/watch?v=acJHkd6K5kI&t=3461s
-// https://www.youtube.com/watch?v=i6L2jLHV9j8&t=10006s
+// Creating a project I used a general idea of knowledge provided in tutorials/websites:
+// Student Jam - created by Maeva Nap (https://www.youtube.com/watch?v=acJHkd6K5kI&t=3461s)
+// Tutorial - created by Ryan Waite (https://www.youtube.com/watch?v=i6L2jLHV9j8&t=10006s)
+// https://stackoverflow.com
+// https://study-hall.udacity.com/
 
 import React, { Component } from 'react'
 import { Route } from 'react-router-dom'
@@ -25,9 +27,9 @@ class BooksApp extends Component {
   // When the shelf is changed the server is updated, then there is an update on the client side
   changeShelf = (book, shelf) => {
     BooksAPI.update(book, shelf).then(resp => {
-      book.shelf = shelf;
+      book.shelf = shelf
       this.setState(state => ({
-        books: state.books.filter(b => b.id !== book.id).concat([book])
+        books: state.books.filter(b => b.title !== book.title).concat([book])
       }))
     })
   }
