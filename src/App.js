@@ -1,4 +1,5 @@
 // Creating a project I used a general idea of knowledge provided in tutorials/websites:
+// Udacity - Building with React Lessons
 // Student Jam - created by Maeva Nap (https://www.youtube.com/watch?v=acJHkd6K5kI&t=3461s)
 // Tutorial - created by Ryan Waite (https://www.youtube.com/watch?v=i6L2jLHV9j8&t=10006s)
 // https://stackoverflow.com
