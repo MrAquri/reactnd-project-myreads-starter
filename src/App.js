@@ -19,10 +19,9 @@ class BooksApp extends Component {
   }
 
   // Fetching all the books after the page is loaded
-  componentDidMount() {
-    BooksAPI.getAll().then((books) => {
-      this.setState({books})
-    })
+  async componentDidMount() {
+    const books = await BooksAPI.getAll()
+    this.setState({ books })
   }
 
   // When the shelf is changed the server is updated, then there is an update on the client side
